@@ -760,7 +760,7 @@ do
       filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue' },
     },
     vue_ls = {},
-
+    eslint = {},
     stylua = {}, -- Used to format Lua code
 
     -- Special Lua Config, as recommended by neovim help docs
@@ -845,12 +845,13 @@ do
       local enabled_filetypes = {
         javascript = true,
         typescript = true,
+        vue = true,
         go = true,
         lua = true,
         -- python = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
-        return { timeout_ms = 500 }
+        return { timeout_ms = 2000 }
       else
         return nil
       end
@@ -860,6 +861,9 @@ do
     },
     -- You can also specify external formatters in here.
     formatters_by_ft = {
+      javascript = { 'prettier' },
+      typescript = { 'prettier' },
+      vue = { 'prettier' },
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
