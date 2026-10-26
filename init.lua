@@ -427,17 +427,14 @@ do
   vim.pack.add { gh 'ellisonleao/gruvbox.nvim' }
   ---@diagnostic disable-next-line: missing-fields
   require('gruvbox').setup {
-    contrast = '', -- 'hard', 'soft', or '' for medium
-    italic = { strings = false, comments = false, operators = false, folds = false }, -- Disable italics
-    -- Highlight references of the symbol under the cursor with a subtle background only,
-    -- keeping the text's normal syntax color
-    overrides = {
-      LspReferenceText = { bg = '#3c3836' },
-      LspReferenceRead = { bg = '#3c3836' },
-      LspReferenceWrite = { bg = '#3c3836' },
+    italic = {
+      strings = true,
+      emphasis = true,
+      comments = false, -- Disable italics in comments
+      operators = false,
+      folds = true,
     },
   }
-  vim.o.background = 'dark' -- or 'light'
 
   -- Load the colorscheme here.
   vim.cmd.colorscheme 'gruvbox'
