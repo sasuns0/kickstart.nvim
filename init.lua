@@ -434,6 +434,12 @@ do
       operators = false,
       folds = true,
     },
+    -- Keep syntax colors on references under the cursor; only tint the background
+    overrides = {
+      LspReferenceText = { bg = '#504945' },
+      LspReferenceRead = { bg = '#504945' },
+      LspReferenceWrite = { bg = '#504945' },
+    },
   }
 
   -- Load the colorscheme here.
